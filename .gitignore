@@ -1,0 +1,12 @@
+dist
+es
+lib
+typings
+node_modules
+.umi
+.umi-test
+.umi-production
+.dumi
+
+# OS
+.DS_Store
