@@ -11,5 +11,6 @@ declare module 'ComponentTypes' {
   export type Detail = {
     name: string;
     img: any;
+    props?: Record<string, any>;
   };
 }
