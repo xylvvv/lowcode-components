@@ -28,8 +28,8 @@ devDependencies:
     specifier: ^5.39.0
     version: 5.39.0(eslint@8.24.0)(typescript@4.8.4)
   '@zafuru/plugin-components':
-    specifier: ^1.0.2
-    version: 1.0.2
+    specifier: ^1.0.3
+    version: 1.0.3
   cross-env:
     specifier: ^7.0.3
     version: 7.0.3
@@ -2580,8 +2580,8 @@ packages:
       - debug
     dev: true
 
-  /@zafuru/plugin-components@1.0.2:
-    resolution: {integrity: sha512-NayCTJxflC1UrVxp0HhpPxUAkhIHgEZ0rnf6CEjZPzuHHS6V/OqdzGVJNcLwzPcu0Q6EixaKNKQbqL7DKiKJJw==}
+  /@zafuru/plugin-components@1.0.3:
+    resolution: {integrity: sha512-OxtsgK+JonijWzEi/xeu3C8+diTwzM/uWc8zrshSqj0DwDyvDByFNfY8Fzp4KgE7xIaCjx+Nnfb4w2bvaNHJhw==}
     dependencies:
       '@babel/core': 7.22.5
       '@babel/plugin-transform-runtime': 7.22.5(@babel/core@7.22.5)
