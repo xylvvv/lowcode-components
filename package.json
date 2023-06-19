@@ -1,6 +1,6 @@
 {
   "name": "lowcode-components",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "低代码平台默认组件库",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -33,7 +33,7 @@
     "@types/react-css-modules": "^4.6.4",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
-    "@zafuru/plugin-components": "^1.0.0",
+    "@zafuru/plugin-components": "^1.0.2",
     "cross-env": "^7.0.3",
     "dumi": "^1.1.48",
     "eslint": "^8.24.0",
