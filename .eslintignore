@@ -8,6 +8,3 @@ typings
 .umi-test
 .umi-production
 .dumi
-
-# OS
-.DS_Store
