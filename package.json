@@ -1,6 +1,6 @@
 {
   "name": "lowcode-components",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "低代码平台默认组件库",
   "main": "lib/index.js",
   "module": "es/index.js",
