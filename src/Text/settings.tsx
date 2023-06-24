@@ -4,6 +4,6 @@ import { Settings } from 'ComponentTypes';
 export default {
   text: {
     label: '文本',
-    component: Input,
+    component: Input.TextArea,
   },
 } as Settings;

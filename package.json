@@ -1,6 +1,6 @@
 {
   "name": "lowcode-components",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "低代码平台默认组件库",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -41,6 +41,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "lowcode-prop-comps": "^1.0.0",
     "prettier": "^2.7.1",
     "tsc-alias": "^1.7.0",
     "typescript": "^4.8.4"
