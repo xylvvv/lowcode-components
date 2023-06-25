@@ -1,5 +1,5 @@
 import { Settings } from 'ComponentTypes';
-import { ImageUploader } from 'lowcode-prop-comps';
+import { ImageUploader } from '@hosi/admin';
 
 export default {
   imgSrc: {

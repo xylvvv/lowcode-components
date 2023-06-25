@@ -11,6 +11,7 @@ const SettingRender: FC<Props> = ({ config, children }) => {
   const [props, setProps] = useState<Record<string, any>>({});
   return (
     <>
+      <p>{children(props)}</p>
       {Object.keys(config)?.map((key) => {
         const { component, label } = config[key];
         const Component = component || Input;
@@ -22,7 +23,6 @@ const SettingRender: FC<Props> = ({ config, children }) => {
                 onChange={(e) => setProps({ ...props, [key]: e?.target ? e.target.value : e })}
               />
             </Form.Item>
-            {children(props)}
           </Fragment>
         );
       })}
