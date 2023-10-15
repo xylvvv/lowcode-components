@@ -23,10 +23,10 @@ const options = [
 
 export default {
   value: {
-    label: 'url地址',
+    label: 'url',
   },
   size: {
-    label: '二维码尺寸',
+    label: '尺寸',
     component: InputNumber,
   },
   // bgColor: {
