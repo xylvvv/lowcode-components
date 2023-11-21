@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-const Text: FC<Record<string, any>> = ({ text, materialRef, ...style }) => {
+const Text: FC<Record<string, any>> = ({ text, materialRef, onClick, ...style }) => {
   return (
-    <div ref={materialRef} style={style}>
+    <div ref={materialRef} style={style} onClick={onClick}>
       {text}
     </div>
   );

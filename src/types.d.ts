@@ -6,7 +6,10 @@ declare module 'ComponentTypes' {
     component?: ComponentType<any>;
   }
 
-  export type Settings = Record<string, SettingItem>;
+  export type Settings = {
+    items?: Record<string, SettingItem | null>;
+    eventOptions?: Array<{ label: string; value: string }>;
+  };
 
   export type Detail = {
     name: string;

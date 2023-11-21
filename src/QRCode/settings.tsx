@@ -22,31 +22,41 @@ const options = [
 ];
 
 export default {
-  value: {
-    label: 'url',
+  items: {
+    value: {
+      label: 'url',
+    },
+    size: {
+      label: '尺寸',
+      component: InputNumber,
+    },
+    // bgColor: {
+    //   label: '背景色',
+    //   component: ColorPicker,
+    // },
+    color: {
+      label: '颜色',
+      component: ColorPicker,
+    },
+    errorLevel: {
+      label: '等级',
+      component: (props) => <Select {...props} options={options} />,
+    },
+    icon: {
+      label: '图标',
+      component: ImageUploader,
+    },
+    iconSize: {
+      label: '图标大小',
+      component: InputNumber,
+    },
+    width: null,
+    height: null,
   },
-  size: {
-    label: '尺寸',
-    component: InputNumber,
-  },
-  // bgColor: {
-  //   label: '背景色',
-  //   component: ColorPicker,
-  // },
-  color: {
-    label: '颜色',
-    component: ColorPicker,
-  },
-  errorLevel: {
-    label: '等级',
-    component: (props) => <Select {...props} options={options} />,
-  },
-  icon: {
-    label: '图标',
-    component: ImageUploader,
-  },
-  iconSize: {
-    label: '图标大小',
-    component: InputNumber,
-  },
+  eventOptions: [
+    {
+      label: '点击事件',
+      value: 'onClick',
+    },
+  ],
 } as Settings;
