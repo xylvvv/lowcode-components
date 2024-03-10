@@ -9,11 +9,13 @@ interface Props {
 
 const SettingRender: FC<Props> = ({ config, children }) => {
   const [props, setProps] = useState<Record<string, any>>({});
+  const { items = {} } = config;
   return (
     <>
-      <p>{children(props)}</p>
-      {Object.keys(config)?.map((key) => {
-        const { component, label } = config[key];
+      <div>{children(props)}</div>
+      {Object.keys(items)?.map((key) => {
+        if (!items[key]) return null;
+        const { component, label } = items[key] || {};
         const Component = component || Input;
         return (
           <Fragment key={key}>
