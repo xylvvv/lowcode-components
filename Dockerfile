@@ -19,4 +19,6 @@ RUN npm i --registry=https://registry.npmmirror.com/
 COPY . .
 
 RUN npm run build:docs \
+  && pwd \
+  && ls -al dumi \
   && ossutil cp -rf --meta Cache-Control:max-age=31536000 dumi/dist oss://$OSS_BUCKET/$OBJECT_NAME
