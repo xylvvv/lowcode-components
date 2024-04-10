@@ -6,7 +6,7 @@ import pkg from '../package.json'
 export default defineConfig({
   ...dumiConfig,
   title: '基础组件库',
-  mfsu: {},
+  // mfsu: {},
   webpack5: {},
   mode: 'site',
   resolve: {
