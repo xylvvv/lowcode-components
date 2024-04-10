@@ -2,7 +2,11 @@ FROM node:16-alpine
 
 WORKDIR /app
 
-ARG OSS_ACCESS_KEY_ID OSS_ACCESS_KEY_SECRET OSS_ENDPOINT OSS_BUCKET OBJECT_NAME
+ARG OSS_ACCESS_KEY_ID
+ARG OSS_ACCESS_KEY_SECRET
+ARG OSS_ENDPOINT
+ARG OSS_BUCKET
+ARG OBJECT_NAME
 
 RUN wget https://gosspublic.alicdn.com/ossutil/1.7.13/ossutil64 -O /usr/local/bin/ossutil \
   && chmod 755 /usr/local/bin/ossutil \
