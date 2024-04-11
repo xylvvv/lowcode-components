@@ -7,6 +7,7 @@ export default defineConfig({
   ...dumiConfig,
   title: '基础组件库',
   // mfsu: {},
+  esbuild: { target: 'es5' },
   webpack5: {},
   mode: 'site',
   resolve: {
