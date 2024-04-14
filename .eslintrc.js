@@ -11,11 +11,10 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
-    'plugin:react/jsx-runtime', // new JSX transform from React 17
+    'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
-    // 1.关闭与prettier冲突的样式规则（eslint-config-prettier）；
-    // 2.注册eslint-plugin-prettier插件，使ESLint检测prettier样式问题
     'plugin:prettier/recommended',
+    'plugin:storybook/recommended',
   ],
   settings: {
     react: {

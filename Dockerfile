@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:18-alpine
 
 WORKDIR /app
 
@@ -18,5 +18,5 @@ RUN npm i --registry=https://registry.npmmirror.com/
 
 COPY . .
 
-RUN npm run build:docs \
-  && ossutil cp -rf --meta Cache-Control:max-age=31536000 dumi/dist oss://$OSS_BUCKET/$OBJECT_NAME
+RUN npm run build-storybook \
+  && ossutil cp -rf --meta Cache-Control:max-age=31536000 storybook-static oss://$OSS_BUCKET/$OBJECT_NAME

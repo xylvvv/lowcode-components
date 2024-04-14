@@ -13,4 +13,10 @@ export default {
     icon: undefined,
     iconSize: 40,
   },
+  eventOptions: [
+    {
+      label: '点击事件',
+      value: 'onClick',
+    },
+  ],
 } as Detail;
