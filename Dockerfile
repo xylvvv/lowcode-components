@@ -14,9 +14,9 @@ RUN wget https://gosspublic.alicdn.com/ossutil/1.7.13/ossutil64 -O /usr/local/bi
 
 COPY package.json .
 
-RUN npm i --registry=https://registry.npmmirror.com/
+RUN corepack enable pnpm && pnpm i --registry=https://registry.npmmirror.com/
 
 COPY . .
 
-RUN npm run build-storybook \
+RUN pnpm build-storybook \
   && ossutil cp -rf --meta Cache-Control:max-age=31536000 storybook-static oss://$OSS_BUCKET/$OBJECT_NAME
