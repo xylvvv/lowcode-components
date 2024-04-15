@@ -26,7 +26,8 @@ const config: StorybookConfig = {
 
     return mergeConfig(config, {
       build: {
-        target: 'esnext'
+        target: 'esnext',
+        assetsDir: ''
       },
       base: configType === 'PRODUCTION' ? `/${pkg.name}/${pkg.version}/` : '/',
       resolve: {
