@@ -27,32 +27,42 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
   webpackFinal(config, { configType }) {
-    const federationOptions = genFederationOptions()
-    if (Array.isArray(config.entry)) {
-      const idx = config.entry.findIndex(entry => entry.includes('storybook-config-entry.js'))
-      config.entry[idx] = config.entry[idx].replace('/storybook-config-entry.js', '/__entry.js')
-    }
-
-    return merge(config, {
-      // output: {
-      //   publicPath: configType === 'PRODUCTION' ? `${pkg.name}/${pkg.version}/` : ''
-      // },
+    let finalConfig = merge(config, {
       resolve: {
         alias: {
           [pkg.name]: path.resolve('.', 'src/index.ts'),
           '@': path.resolve('src')
         }
       },
-      plugins: [
-        new webpack.container.ModuleFederationPlugin(federationOptions as unknown as ModuleFederationPluginOptions),
-        new VirtualModulesPlugin({
-          './__entry.js': `import('${path.resolve('./storybook-config-entry.js')}');`,
-        })
-      ],
-      optimization: {
-        runtimeChunk: 'single',
-      }
     })
+
+    if (configType === 'PRODUCTION') {
+      const federationOptions = genFederationOptions()
+      finalConfig = merge(finalConfig, {
+        entry: {
+          main: ['./__entry.js'],
+          [federationOptions.name]: ['./__internal_remoteEntry.js']
+        },
+        output: {
+          publicPath: `${pkg.name}/${pkg.version}`
+        },
+        plugins: [
+          new webpack.container.ModuleFederationPlugin(federationOptions as unknown as ModuleFederationPluginOptions),
+          new VirtualModulesPlugin({
+            './__entry.js': `import('${path.resolve('./storybook-config-entry.js')}');`,
+            './__internal_remoteEntry.js': `__webpack_public_path__ = new URL(document.currentScript.src).origin + "/";
+              Object.assign(window, {
+                ${federationOptions.name}: __webpack_require__("webpack/container/entry/${federationOptions.name}"),
+              });`,
+          })
+        ],
+        optimization: {
+          runtimeChunk: false,
+        }
+      })
+    }
+
+    return finalConfig
   },
   swc(config, { configType }) {
     return merge(config, {
