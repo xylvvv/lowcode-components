@@ -43,9 +43,6 @@ const config: StorybookConfig = {
           main: ['./__entry.js'],
           [federationOptions.name]: ['./__internal_remoteEntry.js']
         },
-        output: {
-          publicPath: `${pkg.name}/${pkg.version}`
-        },
         plugins: [
           new webpack.container.ModuleFederationPlugin(federationOptions as unknown as ModuleFederationPluginOptions),
           new VirtualModulesPlugin({
