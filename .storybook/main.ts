@@ -38,20 +38,16 @@ const config: StorybookConfig = {
 
     if (configType === 'PRODUCTION') {
       const federationOptions = genFederationOptions()
-      const publicPath = `${pkg.name}/${pkg.version}`
       finalConfig = merge(finalConfig, {
         entry: {
           main: ['./__entry.js'],
           [federationOptions.name]: ['./__internal_remoteEntry.js']
         },
-        output: {
-          publicPath
-        },
         plugins: [
           new webpack.container.ModuleFederationPlugin(federationOptions as unknown as ModuleFederationPluginOptions),
           new VirtualModulesPlugin({
             './__entry.js': `import('${path.resolve('./storybook-config-entry.js')}');`,
-            './__internal_remoteEntry.js': `__webpack_public_path__ = new URL(document.currentScript.src).origin + "/${publicPath}";
+            './__internal_remoteEntry.js': `__webpack_public_path__ = new URL(document.currentScript.src).origin + "/${pkg.name}/${pkg.version}/";
               Object.assign(window, {
                 ${federationOptions.name}: __webpack_require__("webpack/container/entry/${federationOptions.name}"),
               });`,
