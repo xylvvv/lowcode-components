@@ -5,6 +5,8 @@ module.exports = {
     node: true,
   },
   root: true,
+  files: ['.tsx', '.jsx', '.jsx', '.js'],
+  ignores: ['node_modules', 'dist', 'es', 'lib', 'typings', 'storybook-static'],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
   extends: [
